@@ -5,7 +5,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        static Dictionary<string, RecordDate> recordsDate = new Dictionary<string, RecordDate>(); 
+        static Dictionary<string, RecordDate> recordsDate = new Dictionary<string, RecordDate>(); //Хранит дату и объект записи на эту дату
         static DateTime currentDate = DateTime.Now;
         static int current_recordDateLength = 0;
         static int posCursor = 3;
@@ -33,7 +33,7 @@ namespace ConsoleApp1
             while (key != ConsoleKey.Escape);
         }
 
-        static void Menu()
+        static void Menu() //Отрисовываем меню на определнную дату
         {
             try
             {
@@ -52,7 +52,7 @@ namespace ConsoleApp1
         }
 
 
-        static void PrintRecord(DateTime date, List<RecordDate.Record> lst = null)
+        static void PrintRecord(DateTime date, List<RecordDate.Record> lst = null) // Ввыводим тек дату и названия записей (если есть), и в конце пункт для возможности добваления новой записи
         {
             Console.WriteLine(date.ToShortDateString());
             Console.WriteLine("------------------");
@@ -66,7 +66,7 @@ namespace ConsoleApp1
             Console.WriteLine("  +Добавить запись");
         }
 
-        static void choosePoint(ConsoleKey key)
+        static void choosePoint(ConsoleKey key) //Отвечает за стрелочное меню: граница выборки
         {
             Console.SetCursorPosition(0, posCursor);
             Console.WriteLine("  ");
@@ -85,7 +85,7 @@ namespace ConsoleApp1
             Console.WriteLine("->");
         }
 
-        static void changeDate( ConsoleKey key)
+        static void changeDate( ConsoleKey key) //Ввыводим меню на след/пред день
         {
             if (key == ConsoleKey.LeftArrow)
             {
@@ -98,7 +98,7 @@ namespace ConsoleApp1
             Menu();
         }
 
-        static void createRecordDate()
+        static void createRecordDate() //Отвечает за отображения формы добавления записи, когда выбираем пункт "+ Добавить запись"
         {
             Console.WriteLine(currentDate);
             Console.WriteLine("Введите название записи");
@@ -106,20 +106,20 @@ namespace ConsoleApp1
             Console.WriteLine("Введите описание записи");
             string desc = Console.ReadLine();
             
-            if (recordsDate.ContainsKey(currentDate.ToShortDateString()))
+            if (recordsDate.ContainsKey(currentDate.ToShortDateString())) //Объект записи на эту дату есть-> к тек записям добавляем новую 
             {
                 RecordDate currentRD = recordsDate[currentDate.ToShortDateString()];
                 currentRD.createRecord(currentDate, name, desc);
             }
             else
             {
-                RecordDate recordDate = new RecordDate();
+                RecordDate recordDate = new RecordDate();// Создаем объект-записи на эту дату и добавляем в него новую запись
                 recordDate.createRecord(currentDate, name, desc);
                 recordsDate.Add(currentDate.ToShortDateString(),recordDate);
             }
             
         }
-        static void getRecord(int index)
+        static void getRecord(int index) //Отображаем описание записи при ее выборе
         {
             try
             {
@@ -134,7 +134,7 @@ namespace ConsoleApp1
 }
 
 
-class RecordDate
+class RecordDate //Объект записи на опр дату: хранит дату и список записей, а также функционал для добавления и вывода записи
 {
     public class Record
     {
