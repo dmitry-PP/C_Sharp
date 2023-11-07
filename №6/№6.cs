@@ -12,42 +12,11 @@ namespace ConsoleApp1
         static int pos_y = 0;
         static string[] body_file;
 
-        private static void get_file_body(List<Cake> lst)
-        {
-            List<string> midd = new List<string> { };
-            for(int i = 0; i < lst.Count; i++)
-            {
-                foreach (var item in lst[i].convert())
-                {
-                    midd.Add(item);
-                }
-            }
-            body_file = midd.ToArray();
-            
-        }
-
         static void Main(string[] args)
         {
             string path = Console.ReadLine();
-            
-            if (Path.GetExtension(path) == ".json")
-            {
-                List<Cake> result = JsonConvert.DeserializeObject<List<Cake>>(File.ReadAllText(path));
-                get_file_body(result);
-            }
-            else if (Path.GetExtension(path) == ".xml")
-            {
-                XmlSerializer xml = new XmlSerializer(typeof(List<Cake>));
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-                {
-                    List<Cake> result = xml.Deserialize(fs) as List<Cake>;
-                    get_file_body(result);
-                }
-            }
-            else if (Path.GetExtension(path) == ".txt")
-            {
-                body_file = File.ReadAllLines(path);
-            }
+            body_file=FileWR.read(path);
+
             if (File.Exists(path))
             {
                 foreach (string item in body_file)
@@ -155,24 +124,7 @@ namespace ConsoleApp1
                             list.Add(new Cake(body_file[j], Convert.ToInt32(body_file[j + 1]), Convert.ToInt32(body_file[j+2])));
                             j+=3;
                         }
-                        if (Path.GetExtension(new_path)==".json")
-                        {
-                            string json = JsonConvert.SerializeObject(list);
-                            File.WriteAllText(new_path, json);
-                        }
-                        else if (Path.GetExtension(new_path) == ".xml")
-                        {
-                            XmlSerializer xml = new XmlSerializer(typeof(List<Cake>));
-                            using (FileStream fs = new FileStream(new_path, FileMode.OpenOrCreate))
-                            {
-                                xml.Serialize(fs, list);
-                            }
-
-                        }
-                        else if(Path.GetExtension(new_path) == ".txt")
-                        {
-                            File.WriteAllText(new_path, string.Join("\n", body_file));
-                        }
+                        FileWR.write(new_path,list,body_file);
                         break;
                     }
                 default:
@@ -220,5 +172,69 @@ public class Cake
     public string[] convert()
     {
         return new string[3] { this.name, Convert.ToString(this.weight), Convert.ToString(this.price) };
+    }
+}
+
+
+static class FileWR
+{
+    static string[] body_file;
+    static public void write(string new_path,List<Cake> list, string[] body_file)
+    {
+        if (Path.GetExtension(new_path) == ".json")
+        {
+            string json = JsonConvert.SerializeObject(list);
+            File.WriteAllText(new_path, json);
+        }
+        else if (Path.GetExtension(new_path) == ".xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<Cake>));
+            using (FileStream fs = new FileStream(new_path, FileMode.OpenOrCreate))
+            {
+                xml.Serialize(fs, list);
+            }
+
+        }
+        else if (Path.GetExtension(new_path) == ".txt")
+        {
+            File.WriteAllText(new_path, string.Join("\n", body_file));
+        }
+    }
+
+    static public string[] read(string path)
+    {
+        if (Path.GetExtension(path) == ".json")
+        {
+            List<Cake> result = JsonConvert.DeserializeObject<List<Cake>>(File.ReadAllText(path));
+            get_file_body(result);
+        }
+        else if (Path.GetExtension(path) == ".xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<Cake>));
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                List<Cake> result = xml.Deserialize(fs) as List<Cake>;
+                get_file_body(result);
+            }
+        }
+        else if (Path.GetExtension(path) == ".txt")
+        {
+            body_file = File.ReadAllLines(path);
+        }
+        return body_file;
+    }
+
+    private static void get_file_body(List<Cake> lst)
+    {
+        List<string> midd = new List<string> { };
+        for (int i = 0; i < lst.Count; i++)
+        {
+            foreach (var item in lst[i].convert())
+            {
+                midd.Add(item);
+            }
+        }
+        body_file = midd.ToArray();
+
     }
 }
