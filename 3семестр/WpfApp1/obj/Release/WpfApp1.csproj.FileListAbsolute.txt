@@ -1,0 +1,16 @@
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\bin\Release\WpfApp1.exe.config
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\bin\Release\WpfApp1.exe
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\bin\Release\WpfApp1.pdb
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.csproj.AssemblyReference.cache
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\MainWindow.g.cs
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\App.g.cs
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1_MarkupCompile.cache
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1_MarkupCompile.lref
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\App.baml
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\MainWindow.baml
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.g.resources
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.Properties.Resources.resources
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.csproj.GenerateResource.cache
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.exe
+C:\Users\Dmitr\OneDrive\Рабочий стол\C#\3семестр\WpfApp1\obj\Release\WpfApp1.pdb

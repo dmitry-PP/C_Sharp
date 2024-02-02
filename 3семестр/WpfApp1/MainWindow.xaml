@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="481" Width="698">
+
+    <Grid x:Name="grid" Width="456" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="187"/>
+            <RowDefinition Height="356"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="title" Content="Крестики нолики" HorizontalAlignment="Center" Height="44" Width="222" HorizontalContentAlignment="Center" FontSize="20" VerticalAlignment="Top" Margin="0,24,0,0"/>
+
+        <Button x:Name="btn1" Content="" HorizontalAlignment="Left" Height="106" Margin="59,86,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.RowSpan="2" FontSize="72" VerticalContentAlignment="Top" IsEnabled="False"/>
+        <Button x:Name="btn4" Content="" HorizontalAlignment="Left" Height="106" Margin="59,7,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.Row="1" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn7" Content="" HorizontalAlignment="Left" Height="106" Margin="59,115,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.Row="1" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn2" Content="" Height="106" Margin="0,86,0,0" Width="110" Click="btnClick" Grid.RowSpan="2" FontSize="72" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="1,1,1,1" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" IsEnabled="False"/>
+        <Button x:Name="btn5" Content="" HorizontalAlignment="Center" Height="106" VerticalAlignment="Top" Width="110" Click="btnClick" Margin="0,7,0,0" Grid.Row="1" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn8" Content="" HorizontalAlignment="Center" Height="106" Margin="0,115,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.Row="1" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn3" Content="" HorizontalAlignment="Left" Height="106" Margin="287,86,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.RowSpan="2" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn6" Content="" HorizontalAlignment="Left" Height="106" Margin="287,7,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.Row="1" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Button x:Name="btn9" Content="" HorizontalAlignment="Left" Height="106" Margin="287,115,0,0" VerticalAlignment="Top" Width="110" Click="btnClick" Grid.Row="1" VerticalContentAlignment="Top" IsEnabled="False" FontSize="72"/>
+        <Grid Height="330" Margin="446,82,-180,0" Grid.RowSpan="2" VerticalAlignment="Top" Panel.ZIndex="1">
+            <Button x:Name="o" Content="o" HorizontalAlignment="Right" Margin="0,46,98,0" VerticalAlignment="Top" Height="72" Width="72" FontSize="48" VerticalContentAlignment="Top" Padding="1,1,1,1" Click="Choose"/>
+            <Button x:Name="x" Content="x" HorizontalAlignment="Right" Margin="0,46,20,0" VerticalAlignment="Top" Height="72" Width="72" FontSize="48" VerticalContentAlignment="Top" Click="Choose"/>
+            <Button x:Name="clear" Content="Повторить" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="152" Click="ClearClick"/>
+            <Label Content="Выбирете чем играть" HorizontalAlignment="Center" Height="46" VerticalAlignment="Top" Width="170" FontSize="16"/>
+        </Grid>
+
+    </Grid>
+
+</Window>
